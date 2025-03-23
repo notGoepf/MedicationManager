@@ -1,0 +1,61 @@
+📌 Projekt: Medikamentenverwaltung für Pflegepersonal
+🎯 Ziel:
+Eine benutzerfreundliche App entwickeln, die Pflegepersonal dabei unterstützt, den Medikamentenbedarf von Patienten zu verwalten und rechtzeitig Nachbestellungen zu initiieren.
+
+🛠 Funktionen:
+1️⃣ Patientenverwaltung:
+Patienten können hinzugefügt, bearbeitet oder gelöscht werden (mit Bestätigungspop-up).
+
+Alle Patienten werden auf einer Übersichtsseite angezeigt.
+
+2️⃣ Patienten-Übersichtsseite:
+Zeigt eine Liste aller Patienten mit einer schnellen Übersicht über deren Medikamentenstatus.
+
+Klickt man auf einen Patienten, gelangt man zur Profilansicht.
+
+3️⃣ Patienten-Profilansicht:
+🔹 Liste aller Medikamente des Patienten, inkl.:
+
+Name des Medikaments
+
+Aktuelle Anzahl der Tabletten
+
+Reichweite in Tagen (automatisch berechnet)
+
+Nachbestell-Datum (automatisch berechnet)
+
+🔹 Aktionen in der Profilansicht:
+✅ Neues Medikament hinzufügen
+
+Eingabe der Einnahmehäufigkeit pro Tag über ein Dropdown-Menü (inkl. halber Tabletten, z. B. „0,5“, „1“, „1,5“, bis max. „5“).
+
+✅ Medikament löschen (mit Bestätigungspop-up)
+
+✅ Medikamente nachfüllen
+
+Beim Nachfüllen kann man die Anzahl der neu hinzugefügten Tabletten eingeben.
+
+Die App berechnet automatisch den neuen Gesamtbestand:
+
+Falls das Medikament bereits leer war, startet der neue Bestand einfach bei der eingegebenen Menge.
+
+Falls noch Tabletten übrig waren, wird die neue Menge zur aktuellen Anzahl hinzugefügt (z. B. wenn noch 14 Tabletten da sind und 100 nachgefüllt werden → neuer Bestand = 114).
+
+4️⃣ Automatische Berechnung:
+Errechnet automatisch die Reichweite anhand der Einnahmehäufigkeit pro Tag.
+
+Berechnet das Nachbestell-Datum, basierend auf der verbleibenden Anzahl an Tabletten.
+
+5️⃣ Benachrichtigungen:
+Erinnerungen oder Push-Benachrichtigungen, wenn der Medikamentenvorrat eines Patienten bald zur Neige geht.
+
+🎨 Design:
+✅ Übersichtlich & einfach zu bedienen
+✅ Dropdown-Menü für Einnahmehäufigkeit (inkl. halber Tabletten)
+✅ Farbcodes für Medikamentenstatus (Grün = genug, Gelb = bald leer, Rot = dringend nachbestellen)
+
+💻 Technische Anforderungen:
+📲 Plattform: iOS & Android (Cross-Plattform-App)
+📂 Datenbank: Speicherung der Patientendaten & Medikamente
+☁️ Optionale Cloud-Speicherung für mehrere Geräte
+
