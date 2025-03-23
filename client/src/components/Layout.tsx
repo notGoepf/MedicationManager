@@ -26,9 +26,13 @@ export default function Layout({ children }: LayoutProps) {
       <nav className="fixed bottom-0 inset-x-0 bg-white border-t shadow-lg max-w-xl mx-auto backdrop-blur-md bg-white/90">
         <div className="flex justify-around items-center h-16">
           <Link href="/">
-            <button className={`flex flex-col items-center justify-center w-full py-2 ${isHome || isPatientList || isAddPatient ? 'text-primary' : 'text-gray-500'} transition-colors duration-200`}>
+            <button className={`flex flex-col items-center justify-center py-2 px-4 ${isHome || isPatientList || isAddPatient ? 'text-primary' : 'text-gray-500'} transition-colors duration-200`}>
               <Users className="h-6 w-6" />
-              <span className="text-xs mt-1 font-medium">Patienten</span>
+            </button>
+          </Link>
+          <Link href="/settings">
+            <button className="flex flex-col items-center justify-center py-2 px-4 text-gray-500 transition-colors duration-200">
+              <Settings className="h-6 w-6" />
             </button>
           </Link>
         </div>

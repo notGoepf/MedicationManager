@@ -61,16 +61,7 @@ export default function PatientList() {
         )}
       </div>
       
-      <div className="fixed bottom-0 left-0 right-0 p-4 border-t bg-white">
-        <div className="flex items-center">
-          <span className="text-gray-700 font-medium">Patienten</span>
-          <Link href="/settings">
-            <Button variant="ghost" size="icon" className="ml-2">
-              <Settings className="h-5 w-5 text-gray-500" />
-            </Button>
-          </Link>
-        </div>
-      </div>
+      
     </div>
   );
 }
