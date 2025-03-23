@@ -49,7 +49,6 @@ export default function PatientCard({ patient }: PatientCardProps) {
         <div className="p-4 border-b flex justify-between items-center">
           <div>
             <h3 className="font-medium text-lg">{patient.name}</h3>
-            <p className="text-gray-500 text-sm">Zimmer {patient.room}</p>
           </div>
           {isLoading ? (
             <Skeleton className="h-6 w-32" />
