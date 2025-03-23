@@ -25,14 +25,7 @@ export default function PatientList() {
   return (
     <div>
       <div className="p-4 border-b flex justify-between items-center bg-gray-50">
-        <div className="flex items-center">
-          <h2 className="text-lg font-medium">Patienten Übersicht</h2>
-          <Link href="/settings">
-            <Button variant="ghost" size="icon" className="ml-2">
-              <Settings className="h-5 w-5 text-gray-500" />
-            </Button>
-          </Link>
-        </div>
+        <h2 className="text-lg font-medium">Patienten Übersicht</h2>
         <Link href="/add-patient">
           <Button>
             <Plus className="h-4 w-4 mr-2" />
@@ -41,7 +34,7 @@ export default function PatientList() {
         </Link>
       </div>
       
-      <div className="p-4">
+      <div className="p-4 pb-16">
         {isLoading ? (
           // Loading skeleton
           Array.from({ length: 3 }).map((_, index) => (
@@ -66,6 +59,15 @@ export default function PatientList() {
             <p>Keine Patienten vorhanden. Fügen Sie einen neuen Patienten hinzu.</p>
           </div>
         )}
+      </div>
+      
+      <div className="fixed bottom-0 left-0 right-0 p-4 border-t bg-white flex justify-between items-center">
+        <span className="text-gray-700 font-medium">Patienten</span>
+        <Link href="/settings">
+          <Button variant="ghost" size="icon">
+            <Settings className="h-5 w-5 text-gray-500" />
+          </Button>
+        </Link>
       </div>
     </div>
   );
