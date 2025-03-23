@@ -5,12 +5,10 @@ import { z } from "zod";
 export const patients = pgTable("patients", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
-  room: text("room").notNull(),
 });
 
 export const insertPatientSchema = createInsertSchema(patients).pick({
   name: true,
-  room: true,
 });
 
 export const medications = pgTable("medications", {
@@ -31,7 +29,8 @@ export const insertMedicationSchema = createInsertSchema(medications).pick({
 
 export const updateMedicationSchema = z.object({
   id: z.number(),
-  current: z.number().int().positive(),
+  current: z.number().int().positive().optional(),
+  frequency: z.number().positive().optional(),
 });
 
 export type Patient = typeof patients.$inferSelect;

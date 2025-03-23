@@ -131,9 +131,11 @@ export class MemStorage implements IStorage {
     if (!medication) return undefined;
 
     const updatedMedication: Medication = { 
-      ...medication, 
-      current: updateData.current
+      ...medication,
+      ...(updateData.current !== undefined && { current: updateData.current }),
+      ...(updateData.frequency !== undefined && { frequency: updateData.frequency })
     };
+    
     this.medications.set(id, updatedMedication);
     return updatedMedication;
   }

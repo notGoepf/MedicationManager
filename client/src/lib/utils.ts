@@ -6,7 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function calculateMedicationStatus(count: number, frequency: number) {
-  if (frequency === 0) return { daysLeft: Infinity, status: 'good' };
+  if (frequency === 0) return { daysLeft: Infinity, status: 'empty' };
+  if (count === 0) return { daysLeft: 0, status: 'empty' };
   
   const daysLeft = count / frequency;
   
