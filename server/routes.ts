@@ -122,6 +122,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  apiRouter.get("/medications/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid medication ID" });
+      }
+
+      const medication = await storage.getMedication(id);
+      if (!medication) {
+        return res.status(404).json({ message: "Medication not found" });
+      }
+
+      res.json(medication);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch medication" });
+    }
+  });
+
   apiRouter.post("/medications", validateRequest(insertMedicationSchema), async (req, res) => {
     try {
       // Verify patient exists

@@ -31,6 +31,8 @@ export default function RefillMedication() {
     enabled: medicationId > 0,
   });
 
+
+
   const { data: patient, isLoading: patientLoading } = useQuery<Patient>({
     queryKey: [`/api/patients/${medication?.patientId}`],
     enabled: !!medication?.patientId,

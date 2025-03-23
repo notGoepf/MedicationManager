@@ -7,6 +7,7 @@ interface StatusBadgeProps {
 
 export default function StatusBadge({ status, children }: StatusBadgeProps) {
   const statusStyles = {
+    'neutral': 'bg-gray-300',
     'empty': 'bg-gray-400',
     'good': 'bg-green-500',
     'warning': 'bg-amber-500',

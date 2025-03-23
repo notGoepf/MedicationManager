@@ -18,10 +18,12 @@ export default function PatientCard({ patient }: PatientCardProps) {
   });
 
   // Calculate the most urgent medication status
-  let worstStatus = "good";
+  let worstStatus = "neutral";
   let lowestDays = Infinity;
   
   if (medications && medications.length > 0) {
+    worstStatus = "good"; // Initialize with "good" only if there are medications
+    
     medications.forEach(med => {
       const { daysLeft, status } = calculateMedicationStatus(med.current, med.frequency);
       if (status === "urgent" && worstStatus !== "urgent") {
@@ -38,6 +40,7 @@ export default function PatientCard({ patient }: PatientCardProps) {
   
   // Text to show based on status
   const statusText = {
+    'neutral': 'Keine Medikamente',
     'empty': 'Leer',
     'good': 'Ausreichend',
     'warning': 'Bald nachbestellen',
