@@ -24,7 +24,9 @@ export default function MedicationItem({ medication, onDelete }: MedicationItemP
               {medication.frequency} Tabletten pro Tag
             </p>
           </div>
-          <StatusBadge status={status}>{Math.floor(daysLeft)} Tage übrig</StatusBadge>
+          <StatusBadge status={status}>
+            {status === 'empty' ? 'Leer' : `${Math.floor(daysLeft)} Tage übrig`}
+          </StatusBadge>
         </div>
         <div className="p-4 grid grid-cols-2 gap-4 text-sm">
           <div>

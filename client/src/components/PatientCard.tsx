@@ -38,6 +38,7 @@ export default function PatientCard({ patient }: PatientCardProps) {
   
   // Text to show based on status
   const statusText = {
+    'empty': 'Leer',
     'good': 'Ausreichend',
     'warning': 'Bald nachbestellen',
     'urgent': 'Dringend nachbestellen'
