@@ -16,9 +16,6 @@ const validationSchema = insertPatientSchema.extend({
   name: z.string().min(2, {
     message: "Name muss mindestens 2 Zeichen lang sein.",
   }),
-  room: z.string().min(1, {
-    message: "Zimmernummer ist erforderlich.",
-  }),
 });
 
 type FormData = z.infer<typeof validationSchema>;
@@ -31,7 +28,6 @@ export default function AddPatient() {
     resolver: zodResolver(validationSchema),
     defaultValues: {
       name: "",
-      room: "",
     },
   });
 
@@ -89,19 +85,6 @@ export default function AddPatient() {
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="room"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Zimmernummer</FormLabel>
-                  <FormControl>
-                    <Input placeholder="z.B. 101" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
 
             <Button 
               type="submit" 
