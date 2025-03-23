@@ -8,6 +8,7 @@ import PatientDetail from "@/pages/PatientDetail";
 import AddPatient from "@/pages/AddPatient";
 import AddMedication from "@/pages/AddMedication";
 import RefillMedication from "@/pages/RefillMedication";
+import Settings from "@/pages/Settings";
 import Layout from "@/components/Layout";
 
 function Router() {
@@ -19,6 +20,7 @@ function Router() {
         <Route path="/add-patient" component={AddPatient} />
         <Route path="/patients/:id/add-medication" component={AddMedication} />
         <Route path="/medications/:id/refill" component={RefillMedication} />
+        <Route path="/settings" component={Settings} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

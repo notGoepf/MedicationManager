@@ -3,7 +3,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Plus } from "lucide-react";
+import { Plus, Settings } from "lucide-react";
 import PatientCard from "@/components/PatientCard";
 import { Patient } from "@shared/schema";
 
@@ -25,7 +25,14 @@ export default function PatientList() {
   return (
     <div>
       <div className="p-4 border-b flex justify-between items-center bg-gray-50">
-        <h2 className="text-lg font-medium">Patienten Übersicht</h2>
+        <div className="flex items-center">
+          <h2 className="text-lg font-medium">Patienten Übersicht</h2>
+          <Link href="/settings">
+            <Button variant="ghost" size="icon" className="ml-2">
+              <Settings className="h-5 w-5 text-gray-500" />
+            </Button>
+          </Link>
+        </div>
         <Link href="/add-patient">
           <Button>
             <Plus className="h-4 w-4 mr-2" />
