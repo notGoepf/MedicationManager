@@ -1,5 +1,5 @@
 import { Link, useRoute } from "wouter";
-import { Users, Bell, Settings } from "lucide-react";
+import { Users } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="max-w-xl mx-auto bg-white min-h-screen shadow-md">
-      <header className="bg-primary text-white p-4">
+      <header className="bg-primary bg-gradient-to-r from-primary to-primary/80 text-white p-4">
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-semibold">MediTrack</h1>
           <span className="text-sm">Medikamentenverwaltung</span>
@@ -23,22 +23,14 @@ export default function Layout({ children }: LayoutProps) {
         {children}
       </main>
 
-      <nav className="fixed bottom-0 inset-x-0 bg-white border-t shadow-lg max-w-xl mx-auto">
+      <nav className="fixed bottom-0 inset-x-0 bg-white border-t shadow-lg max-w-xl mx-auto backdrop-blur-md bg-white/90">
         <div className="flex justify-around items-center h-16">
           <Link href="/">
-            <button className={`flex flex-col items-center justify-center w-full py-2 ${isHome || isPatientList || isAddPatient ? 'text-primary' : 'text-gray-500'}`}>
+            <button className={`flex flex-col items-center justify-center w-full py-2 ${isHome || isPatientList || isAddPatient ? 'text-primary' : 'text-gray-500'} transition-colors duration-200`}>
               <Users className="h-6 w-6" />
-              <span className="text-xs mt-1">Patienten</span>
+              <span className="text-xs mt-1 font-medium">Patienten</span>
             </button>
           </Link>
-          <button className="flex flex-col items-center justify-center w-full py-2 text-gray-500">
-            <Bell className="h-6 w-6" />
-            <span className="text-xs mt-1">Erinnerungen</span>
-          </button>
-          <button className="flex flex-col items-center justify-center w-full py-2 text-gray-500">
-            <Settings className="h-6 w-6" />
-            <span className="text-xs mt-1">Einstellungen</span>
-          </button>
         </div>
       </nav>
     </div>

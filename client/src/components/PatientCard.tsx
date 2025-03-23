@@ -48,11 +48,11 @@ export default function PatientCard({ patient }: PatientCardProps) {
   }[worstStatus];
 
   return (
-    <Card className="mb-4">
+    <Card className="mb-4 rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
       <CardContent className="p-0">
-        <div className="p-4 border-b flex justify-between items-center">
+        <div className="p-5 border-b flex justify-between items-center">
           <div>
-            <h3 className="font-medium text-lg">{patient.name}</h3>
+            <h3 className="font-semibold text-lg text-gray-800">{patient.name}</h3>
           </div>
           {isLoading ? (
             <Skeleton className="h-6 w-32" />
@@ -60,7 +60,7 @@ export default function PatientCard({ patient }: PatientCardProps) {
             <StatusBadge status={worstStatus}>{statusText}</StatusBadge>
           )}
         </div>
-        <div className="p-4">
+        <div className="p-5 bg-gradient-to-b from-white to-gray-50/30">
           {isLoading ? (
             <>
               <Skeleton className="h-4 w-48 mb-2" />
@@ -68,21 +68,27 @@ export default function PatientCard({ patient }: PatientCardProps) {
             </>
           ) : (
             <>
-              <p className="text-sm text-gray-600">
-                {medications ? `${medications.length} Medikamente` : "Keine Medikamente"}
-              </p>
-              <p className="text-sm text-gray-600 mt-1">
-                {lowestDays < Infinity 
-                  ? `Nächste Nachbestellung in ${Math.floor(lowestDays)} Tagen` 
-                  : 'Keine Nachbestellung nötig'}
-              </p>
+              <div className="flex items-center">
+                <div className="h-2 w-2 rounded-full bg-primary/70 mr-2"></div>
+                <p className="text-sm text-gray-700 font-medium">
+                  {medications ? `${medications.length} Medikamente` : "Keine Medikamente"}
+                </p>
+              </div>
+              <div className="flex items-center mt-2">
+                <div className="h-2 w-2 rounded-full bg-blue-400 mr-2"></div>
+                <p className="text-sm text-gray-700">
+                  {lowestDays < Infinity 
+                    ? `Nächste Nachbestellung in ${Math.floor(lowestDays)} Tagen` 
+                    : 'Keine Nachbestellung nötig'}
+                </p>
+              </div>
             </>
           )}
         </div>
       </CardContent>
-      <CardFooter className="px-4 py-3 bg-gray-50 flex justify-end">
+      <CardFooter className="px-5 py-3 bg-white flex justify-end border-t border-gray-100">
         <Link href={`/patients/${patient.id}`}>
-          <Button variant="link" className="text-primary-light hover:text-primary font-medium text-sm">
+          <Button variant="ghost" className="text-primary hover:text-primary/90 hover:bg-primary/5 font-medium text-sm transition-colors">
             Details anzeigen
           </Button>
         </Link>

@@ -57,6 +57,7 @@ export default function PatientDetail() {
     },
     onSuccess: () => {
       setIsDeletePatientDialogOpen(false);
+      queryClient.invalidateQueries({ queryKey: ['/api/patients'] });
       toast({
         title: "Erfolgreich",
         description: "Patient wurde erfolgreich gelöscht",

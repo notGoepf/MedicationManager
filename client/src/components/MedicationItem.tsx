@@ -15,11 +15,11 @@ export default function MedicationItem({ medication, onDelete }: MedicationItemP
   const reorderDate = getReorderDate(daysLeft);
 
   return (
-    <Card className="mb-4 shadow-sm">
+    <Card className="mb-4 rounded-xl overflow-hidden shadow-sm border border-gray-100">
       <CardContent className="p-0">
         <div className="p-4 border-b flex justify-between items-center">
           <div>
-            <h3 className="font-medium">{medication.name}</h3>
+            <h3 className="font-medium text-gray-800">{medication.name}</h3>
             <p className="text-sm text-gray-500">
               {medication.frequency} Tabletten pro Tag
             </p>
@@ -28,29 +28,29 @@ export default function MedicationItem({ medication, onDelete }: MedicationItemP
             {status === 'empty' ? 'Leer' : `${Math.floor(daysLeft)} Tage übrig`}
           </StatusBadge>
         </div>
-        <div className="p-4 grid grid-cols-2 gap-4 text-sm">
-          <div>
-            <p className="text-gray-500">Aktueller Bestand</p>
-            <p className="font-medium">{medication.current} Tabletten</p>
+        <div className="p-5 grid grid-cols-2 gap-6 text-sm bg-gray-50/30">
+          <div className="bg-white p-3 rounded-lg shadow-sm">
+            <p className="text-gray-500 mb-1">Aktueller Bestand</p>
+            <p className="font-semibold text-gray-800 text-lg">{medication.current} Tabletten</p>
           </div>
-          <div>
-            <p className="text-gray-500">Nachbestellung am</p>
-            <p className="font-medium">{reorderDate}</p>
+          <div className="bg-white p-3 rounded-lg shadow-sm">
+            <p className="text-gray-500 mb-1">Nachbestellung am</p>
+            <p className="font-semibold text-gray-800 text-lg">{reorderDate}</p>
           </div>
         </div>
       </CardContent>
-      <CardFooter className="px-4 py-3 bg-gray-50 flex justify-between">
+      <CardFooter className="px-5 py-3 flex justify-between border-t border-gray-100">
         <Button 
-          variant="link" 
-          className="text-destructive hover:text-destructive/80 text-sm p-0 h-auto" 
+          variant="ghost" 
+          className="text-red-500 hover:text-red-600 hover:bg-red-50 text-sm font-medium transition-colors" 
           onClick={onDelete}
         >
           Löschen
         </Button>
         <Link href={`/medications/${medication.id}/refill`}>
           <Button 
-            variant="link" 
-            className="text-primary hover:text-primary/80 text-sm p-0 h-auto" 
+            variant="ghost" 
+            className="text-primary hover:text-primary/80 hover:bg-primary/5 text-sm font-medium transition-colors" 
           >
             Nachfüllen
           </Button>
