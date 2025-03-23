@@ -1,5 +1,5 @@
 import { Link, useRoute } from "wouter";
-import { Users } from "lucide-react";
+import { Users, Settings } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
