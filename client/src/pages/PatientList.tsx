@@ -1,3 +1,4 @@
+
 import { useQuery } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "wouter";
@@ -36,7 +37,6 @@ export default function PatientList() {
       
       <div className="p-4 pb-16">
         {isLoading ? (
-          // Loading skeleton
           Array.from({ length: 3 }).map((_, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md mb-4 overflow-hidden p-4">
               <div className="flex justify-between items-center mb-4">
@@ -61,16 +61,7 @@ export default function PatientList() {
         )}
       </div>
       
-      <div className="fixed bottom-0 left-0 right-0 p-4 border-t bg-white flex items-center justify-between">
-        <div className="flex items-center">
-          <span className="text-gray-700 font-medium">Patienten</span>
-          <Link href="/settings">
-            <Button variant="ghost" size="icon" className="ml-2">
-              <Settings className="h-5 w-5 text-gray-500" />
-            </Button>
-          </Link>
-        </div>
-      </div>r">
+      <div className="fixed bottom-0 left-0 right-0 p-4 border-t bg-white">
         <div className="flex items-center">
           <span className="text-gray-700 font-medium">Patienten</span>
           <Link href="/settings">
